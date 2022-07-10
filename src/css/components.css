@@ -8,7 +8,7 @@
 }
 
 .container {
-    width: 90%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,8 +17,9 @@
 .user-data {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 23%;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
 }
 
 .title-user {
@@ -64,7 +65,8 @@
 }
 
 .container-post {
-    width: 100%;
+    width: 80%;
+    max-width: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,11 +74,13 @@
 }
 
 .form-post {
-    width: 60%;
+    width: 100%;
+    max-width: 700px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* position: relative; */
 }
 
 .text-area--post {
@@ -86,6 +90,7 @@
     border-style: none;
     box-shadow: var(--shadow);
     padding: 20px;
+    border-radius: 5px;
 }
 
 .text-area--post::placeholder {
@@ -99,13 +104,14 @@
     width: 20px;
     height: 20px;
     position: absolute;
-    bottom: 10%;
-    right: 21%;
+    bottom: 5px;
+    right: 5px;
     background-color: rgba(var(--color-gold), 1);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 /* Cards Post Main*/
@@ -121,12 +127,16 @@
 }
 
 .card-post {
-    width: 60%;
+    width: 80%;
+    max-width: 700px;
+    height: max-content;
+    min-height: 20vh;
     display: flex;
     box-shadow: var(--shadow);
-    padding: 20px;
-    gap: 15px;
+    padding: 30px;
+    gap: 30px;
     border-radius: 5px;
+    justify-content: inherit;
 }
 
 .foto-user {
@@ -138,6 +148,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 50%;
 }
 
 .titulo-post {
@@ -153,5 +164,32 @@
     font-size: 1rem;
     color: rgba(var(--color-gray-text), 1);
     line-height: 1.188rem;
+}
+
+.info2-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.edit-post, .delete-post {
+    color: #6495ED;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 0.750rem;
+    cursor: pointer;
+}
+
+.delete-post {
+    color: #ED6464;
+}
+
+.date-post {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: 0.750rem;
+    color: #989898;
 }
 
