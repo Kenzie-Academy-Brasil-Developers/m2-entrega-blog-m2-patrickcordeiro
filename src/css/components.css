@@ -42,7 +42,7 @@
 .button__primary {
     --primary-color: var(--color-gold);
 
-    background-color: rgba(var(--primary-color), 1);
+    background-color: rgba(var(--color-blue-dark), 1);
     color: rgba(var(--color-white), 1);
 }
 
@@ -106,7 +106,7 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
-    background-color: rgba(var(--color-gold), 1);
+    background-color: rgba(var(--color-blue-dark), 1);
     display: flex;
     align-items: center;
     justify-content: center;

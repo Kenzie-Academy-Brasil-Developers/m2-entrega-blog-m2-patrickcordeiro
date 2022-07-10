@@ -15,10 +15,19 @@ import PostsRequests from "./controller/posts.controller.js"
 //     "password": "Churros123"
 // })
 
+// const newUser2 = await UserRequests.createUser({
+//     "username": "Patrick Estrela",
+//     "email": "patrick_estrela@email.com",
+//     "avatarUrl": "https://static.wikia.nocookie.net/wikiesponja/images/d/d8/Patrick_Estrela_de_Bob_Esponja.png/revision/latest?cb=20170325005037&path-prefix=pt-br",
+//     "password": "123456"
+// })
+
+
 // const churrinhos = await UserRequests.listUserbyId(6016)
 
 // console.log(login)
 // console.log(newUser)
+// console.log(newUser2)
 // console.log(churrinhos)
 
 //POSTSREQUESTS

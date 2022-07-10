@@ -20,4 +20,5 @@ export default class LoginRequest {
         })
         .catch(err => console.log(err))
     }
+
 }

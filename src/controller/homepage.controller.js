@@ -51,7 +51,7 @@ export default class ComponentsDom {
               event.preventDefault();
               localStorage.removeItem("@blog-M2:userId");
               localStorage.removeItem("@blog-M2:token");
-              window.location.reload(true);
+              window.location.href = "../temp/login.html"
             });
             // buttonAdmin.style.display = "flex";
         }
