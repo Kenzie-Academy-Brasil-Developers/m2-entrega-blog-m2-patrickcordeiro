@@ -21,19 +21,20 @@ export default class UserRequests {
             headers: this.headers,
             body: JSON.stringify(dadosCriacaoUsuario)
         })
-        .then((response) => {
+        .then(response => response.json())
             // let status = response.status
             // return {
             //     response: response.json(), 
-            //     status: response.status
+            //     status: status
             // }
             // return status
             // console.log(response.status)
-            return response.json()
-        })
-        .catch((err) => {
+            
+       
+        // .then(response => response)
+        .catch(err => 
             console.log(err)
-        })
+        )
     }
 
 

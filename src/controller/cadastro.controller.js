@@ -22,6 +22,8 @@ export default class Cadastro {
     static cadastrar() {
         this.buttonCadastrar.addEventListener('click', async (event) => {
             event.preventDefault()
+            localStorage.removeItem("@blog-M2:userId");
+            localStorage.removeItem("@blog-M2:token");
             // console.log(this.username.value)
             // console.log(this.email.value)
             // console.log(this.avatarUrl.value)
@@ -32,12 +34,13 @@ export default class Cadastro {
                 "avatarUrl": `${this.avatarUrl.value}`,
                 "password": `${this.password.value}`
             })
+            console.log(newUser)
             // window.location.href = "../temp/login.html"
 
-            // if(newUser === 200) {
+            // if(newUser.status === 200) {
             //     window.location.href = "../temp/login.html"
             // }
-            console.log(newUser)
+            
 
 
             

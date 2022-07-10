@@ -13,6 +13,8 @@ export default class ComponentsDom {
         const img = document.createElement('img')
         const h2 = document.createElement('h2')
         const button = document.createElement('button')
+        const buttonAtualizar = document.createElement('button')
+        
 
 
         header.classList.add('header')
@@ -21,6 +23,10 @@ export default class ComponentsDom {
         img.classList.add('img-user')
         h2.classList.add('title-user')
         button.classList.add(
+            'button',
+            'button__primary'
+        )
+        buttonAtualizar.classList.add(
             'button',
             'button__primary'
         )
@@ -35,11 +41,18 @@ export default class ComponentsDom {
         img.classList.add('foto-user')
 
         button.type = 'button'
+        buttonAtualizar.type = 'button'
+
+        h2.innerText = `${myUser.username}`
         
+        buttonAtualizar.innerText = 'Atualizar'
+
+        console.log(localStorage.getItem("@blog-M2:userId"))
+        console.log(localStorage.getItem("@blog-M2:token"))
+
         if (JSON.parse(localStorage.getItem("@blog-M2:userId")) === null) {
-            button.innerText = "Login";
-            img.src = "https://logosmarcas.net/wp-content/uploads/2020/04/Facebook-Logo.png"
-            
+            button.innerText = 'Login'
+            window.location.href = "../temp/login.html"
             // button.addEventListener("click", (event) => {
             //   const modal = document.querySelector(".modal__login");
             //   modal.style.display = "flex";
@@ -57,9 +70,13 @@ export default class ComponentsDom {
         }
 
         divUserData.append(img, h2)
-        divContainer.append(divUserData, button)
+        divContainer.append(divUserData, buttonAtualizar, button)
         header.append(divContainer)
         this.body.append(header)
+
+        buttonAtualizar.addEventListener('click', (event) => {
+            window.location.reload(true);
+        })
 
         
     }
@@ -131,12 +148,7 @@ export default class ComponentsDom {
                 cardPost.children[2].children[0].style.display = 'flex'
                 cardPost.children[2].children[1].style.display = 'flex'
             }
-            // const editPost = document.querySelector('.edit-post')
-            // const deletePost = document.querySelector('.delete-post')
-            // if(post.user.id === cardPost.children[1].firstChild.textContent) {
-            //     editPost.style.display = 'flex'
-            //     deletePost.style.display = 'flex'
-            // }
+            
             cardPost.id = `${post.id}`
             sectionPosts.append(cardPost)
             
@@ -160,23 +172,63 @@ export default class ComponentsDom {
         // console.log(botaoCriarPost)
         
         // console.log(cardLateral)
-        botaoCriarPost.addEventListener('click', async(event) => {
+        botaoCriarPost.addEventListener('click', async (event) => {
             event.preventDefault()
             const newPost = new Post("../src/assets/temp/usuarioLogado.png",'Patrick' ,event.path[2][0].value , new Date())
-            console.log(newPost)
+            // console.log(newPost)
             await PostsRequests.createPost({
                 "content": `${event.path[2][0].value}`
             })
+            window.location.reload(true);
             const cardPost = newPost.createCard(newPost)
             
             
             sectionPosts.append(cardPost)
             
-            window.location.reload(true);
+            
             
         })
 
-        let botaoApagar = document.querySelector('.delete-post')
+
+
+        let botaoEditarPost = document.querySelectorAll('.edit-post')
+
+        botaoEditarPost.forEach((edit) => {
+            edit.addEventListener('click', async (event) => {
+                // console.dir(event.target.parentElement.previousSibling.children[1])
+                if(event.target.textContent === 'Editar') {
+                     // console.log(event.target.textContent === 'Editar')
+                event.target.parentElement.previousSibling.children[1].contentEditable = 'true'
+                event.target.parentElement.previousSibling.children[1].style.border = '1px solid black'
+                event.target.innerText = 'salvar'
+                // event.target.parentElement.previousSibling.children[1].focus();return false
+                } 
+                else {
+                   await PostsRequests.updatePost(parseInt(event.target.parentElement.parentElement.id), {
+                          "content": `${event.target.parentElement.previousSibling.children[1].textContent}`
+                    })
+                    window.location.reload(true);
+                }
+                
+               
+
+                
+                // console.dir(event.target.parentElement.previousSibling.children[1])
+
+            })
+        })
+        // console.log(botaoEditarPost)
+
+        let botaoApagarPost = document.querySelectorAll('.delete-post')
+
+        botaoApagarPost.forEach((edit) => {
+            edit.addEventListener('click', async (event) => {
+                console.log(event.target.parentElement.parentElement)
+                await PostsRequests.deletePost(parseInt(event.target.parentElement.parentElement.id))
+                window.location.reload(true);
+            })
+        })
+        // console.log(botaoEditarPost)
 
         // console.log(botaoApagar.parentElement.parentElement.id)
         // console.log(botaoApagar)

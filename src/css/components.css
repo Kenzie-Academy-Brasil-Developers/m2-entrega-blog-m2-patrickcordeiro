@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height: 4rem;
+    height: 6rem;
     justify-content: center;
     background-color: rgba(var(--color-blue), 1);
 }
@@ -12,12 +12,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .user-data {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
     gap: 10px;
 }
@@ -37,6 +39,7 @@
     border-radius: 2px;
     cursor: pointer;
     padding: 0.300rem;
+    margin-left: 5px;
 }
 
 .button__primary {
@@ -134,7 +137,7 @@
     display: flex;
     box-shadow: var(--shadow);
     padding: 30px;
-    gap: 30px;
+    gap: 10px;
     border-radius: 5px;
     justify-content: inherit;
 }
@@ -148,7 +151,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 50%;
+    width: 45%;
 }
 
 .titulo-post {
@@ -164,6 +167,7 @@
     font-size: 1rem;
     color: rgba(var(--color-gray-text), 1);
     line-height: 1.188rem;
+    word-wrap: break-word;
 }
 
 .info2-post {
@@ -191,5 +195,26 @@
     font-weight: 400;
     font-size: 0.750rem;
     color: #989898;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 375px) {
+    .header {
+        height: 4rem;
+    }
+    .container {
+        flex-wrap: nowrap;
+        gap: 0;
+    }
+    .user-data {
+        justify-content: flex-start;
+    }
+    .card-post {
+        gap: 30px;
+    }
+    .info-post {
+        width: 50%;
+    }
 }
 
