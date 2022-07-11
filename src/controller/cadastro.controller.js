@@ -17,16 +17,14 @@ export default class Cadastro {
     static cadastrar() {
         this.buttonCadastrar.addEventListener('click', async (event) => {
             event.preventDefault()
-            console.log(this.username.value)
+
             const newUser = await UserRequests.createUser({
                 "username": `${this.username.value}`,
                 "email": `${this.email.value}`,
                 "avatarUrl": `${this.avatarUrl.value}`,
                 "password": `${this.password.value}`
             })
-            console.log(newUser)
-            window.location.href = '../../index.html'
-           
+
         })
     }
 

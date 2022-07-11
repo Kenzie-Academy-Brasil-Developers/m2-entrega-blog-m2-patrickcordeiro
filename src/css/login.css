@@ -70,8 +70,8 @@ input {
     height: 40px;
     border-radius: 5px;
     border-style: none;
-
-    background-color: rgba(var(--color-black), 1);
+    color: white;
+    background-color: rgba(70, 90, 126, 0.4);
 }
 
 .button {

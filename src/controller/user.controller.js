@@ -16,15 +16,26 @@ export default class UserRequests {
     }
 
     static async createUser(dadosCriacaoUsuario) {
-        return await fetch(`${this.base_url}/register`, {
-            method: "POST",
-            headers: this.headers,
-            body: JSON.stringify(dadosCriacaoUsuario)
-        })
-        .then(response => response.json())
-        .catch(err => console.log(err))
+        try {
+            const cadastroUsuario = await fetch(`${this.base_url}/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dadosCriacaoUsuario)
+            })
+            if(cadastroUsuario.status != 201) {
+                throw new Error
+            }
+            const response = await cadastroUsuario.json()
+            window.location.href = '../../index.html'
+            return response
+            
+            
+        } catch(err) {
+            return 
+        } 
     }
-
 
 
 }

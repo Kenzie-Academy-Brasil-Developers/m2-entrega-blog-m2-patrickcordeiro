@@ -3,7 +3,7 @@ export default class LoginRequest {
 
     static email = document.querySelector('.email')
     static password = document.querySelector('.senha')
-    static buttonCadastrar = document.querySelector('.button')
+    static buttonLogin = document.querySelector('.button')
 
 
     static async login(dadosLogin) {
@@ -28,7 +28,7 @@ export default class LoginRequest {
     }
 
     static realizarLogin() {
-        this.buttonCadastrar.addEventListener('click', async (event) => {
+        this.buttonLogin.addEventListener('click', async (event) => {
             event.preventDefault()
             console.log(this.email.value)
             await LoginRequest.login({
