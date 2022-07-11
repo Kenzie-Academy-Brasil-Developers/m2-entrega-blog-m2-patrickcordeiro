@@ -127,7 +127,7 @@ export default class ComponentsDom {
 
         let botaoCriarPost = document.querySelector('.container-botao')
 
-        ///vai dar b.o
+        
         botaoCriarPost.addEventListener('click', async (event) => {
             event.preventDefault()
             const newPost = new Post("../src/assets/temp/usuarioLogado.png",'Patrick' ,event.path[2][0].value , new Date())
@@ -166,7 +166,6 @@ export default class ComponentsDom {
 
         botaoApagarPost.forEach((edit) => {
             edit.addEventListener('click', async (event) => {
-                console.log(event.target.parentElement.parentElement)
                 await PostsRequests.deletePost(parseInt(event.target.parentElement.parentElement.id))
                 window.location.reload(true);
             })

@@ -17,8 +17,6 @@ export default class Cadastro {
     static cadastrar() {
         this.buttonCadastrar.addEventListener('click', async (event) => {
             event.preventDefault()
-            localStorage.removeItem("@blog-M2:userId");
-            localStorage.removeItem("@blog-M2:token");
             console.log(this.username.value)
             const newUser = await UserRequests.createUser({
                 "username": `${this.username.value}`,
@@ -26,6 +24,8 @@ export default class Cadastro {
                 "avatarUrl": `${this.avatarUrl.value}`,
                 "password": `${this.password.value}`
             })
+            console.log(newUser)
+            window.location.href = '../../index.html'
            
         })
     }

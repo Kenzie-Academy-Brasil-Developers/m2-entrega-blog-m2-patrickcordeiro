@@ -18,7 +18,7 @@ export default class LoginRequest {
             return response.json()
         })
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             localStorage.setItem("@blog-M2:userId", JSON.stringify(response.userId))
             localStorage.setItem("@blog-M2:token", JSON.stringify(response.token))
 
@@ -30,11 +30,11 @@ export default class LoginRequest {
     static realizarLogin() {
         this.buttonCadastrar.addEventListener('click', async (event) => {
             event.preventDefault()
-            const login = await LoginRequest.login({
+            console.log(this.email.value)
+            await LoginRequest.login({
                 "email": `${this.email.value}`,
                 "password": `${this.password.value}`
             })
-            console.log(login)
             window.location.href = "./src/views/homepage.html"
 
         })
