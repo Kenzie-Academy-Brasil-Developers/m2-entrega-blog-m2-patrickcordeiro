@@ -7,36 +7,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/css/base.css">
-    <link rel="stylesheet" href="/src/css/reset.css">
-    <link rel="stylesheet" href="/src/css/login.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
     
-    <title>Login - Blog M2</title>
+    <title>Cadastro - Blog M2</title>
 </head>
 <body>
     <main class="main">
         <div class="container">
             <div class="box">
-                <h2 class="title">Login</h2>
+                <h2 class="title">Cadastro</h2>
                 <form class="formulario">
-                    
+                    <input type="text" name="username" class="nome" placeholder="Nome de Usuário">
                     <input type="email" placeholder="Email" class="email">
+                    <input placeholder="Foto de Perfil" class="foto">
                     <input type="password" placeholder="Senha" class="senha">
-                    <button type="button" class="button">Entrar</button>
+                    <button type="submit" class="button">Cadastrar</button>
                 </form>
                 <div class="links-externos">
-                    <a href="">
+                    <a href="#">
                         <p>Esqueci minha senha</p>
                     </a>
-                    <a href="/src/views/cadastro.html">
-                        <p>Clique para se cadastrar</p>
+                    <a href="../../index.html">
+                        <p>Já sou cadastrado</p>
                     </a>
                 </div>
                 
             </div>
         </div>
     </main>
-    <script type="module" src="/src/controller/login.controller.js"></script>
-    <script type="module" src="/src/scripts/login.js"></script>
+
+    <script type="module" src="../controller/cadastro.controller.js"></script>
+    <script type="module" src="../scripts/cadastro.js"></script>
 </body>
 </html>

@@ -64,7 +64,3 @@ export default class Post {
 
 }
 
-// if(post.user.id === parseInt(localStorage.getItem("@blog-M2:userId"))) {
-//     // console.log(document.querySelector('.info2-post'))
-//     document.querySelector('.info2-post').append(editPost, deletePost)
-// }
